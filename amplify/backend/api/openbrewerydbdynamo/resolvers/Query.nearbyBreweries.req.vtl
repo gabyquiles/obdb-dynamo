@@ -1,0 +1,41 @@
+#set( $indexPath = "/brewery/doc/_search" )
+#set( $input = $ctx.args.input)
+#set( $distance = $util.defaultIfNull($input.km, 10) )
+{
+  "version": "2017-02-28",
+  "operation": "GET",
+  "path": "$indexPath",
+  "params": {
+    "headers" : {
+      "Content-Type" : "application/json",
+    },
+    "body": {
+      "size" : 100,
+            "query": {
+              "bool" : { "must" : { "match_all" : {} },
+              "filter" : {
+                "geo_distance" : {
+                  "distance" : "100mi",
+                  "distance_type": "arc",
+                  "coordinates" : {
+                    "lon": -82.7440986,
+                    "lat": 27.7879501
+                  }
+                  }
+                }
+               }
+              },
+            "sort": [{
+              "_geo_distance": {
+                "coordinates": {
+                    "lon": -82.7440986,
+                    "lat": 27.7879501
+                  },
+                "order": "asc",
+                "unit": "mi",
+                "distance_type": "arc"
+               }
+            }]
+    }
+  }
+}

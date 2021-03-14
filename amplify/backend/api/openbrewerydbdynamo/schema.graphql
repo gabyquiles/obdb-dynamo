@@ -1,0 +1,51 @@
+type Brewery @model {
+    id: ID!
+    name: String!
+    breweryType: String!
+    website: String
+    phoneNumber: String
+    webpage: String
+    coordinates: Coordinates
+}
+
+type Address {
+    line1: String!
+    line2: String
+    line3: String
+    city: String!
+    state: String!
+    countyProvince: String!
+    postalcode: String!
+}
+
+type Coordinates {
+    lat: Float!
+    lon: Float!
+}
+
+enum DistanceUnits {
+    KM,
+    MILES
+}
+
+input CoordinatesInput {
+    lat: Float!
+    lon: Float!
+}
+
+input NearbyBreweriesInput {
+    coordinates: CoordinatesInput!
+    km: Int!
+    limit: Int!
+}
+
+type Query {
+    nearbyBreweries(input: NearbyBreweriesInput!): NearbyBreweriesConnection!
+}
+type NearbyBreweriesConnection {
+    items: [NearbyBreweryConnectionItem!]!
+}
+type NearbyBreweryConnectionItem {
+    brewery: Brewery!
+    distance: Float!
+}

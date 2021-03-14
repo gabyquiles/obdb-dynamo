@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-openbrewerydbdynamo-dev-215137-authRole",
+      "UnauthRoleArn": "arn:aws:iam::070854643340:role/amplify-openbrewerydbdynamo-dev-215137-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::070854643340:role/amplify-openbrewerydbdynamo-dev-215137-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-openbrewerydbdynamo-dev-215137-deployment",
+      "UnauthRoleName": "amplify-openbrewerydbdynamo-dev-215137-unauthRole",
+      "StackName": "amplify-openbrewerydbdynamo-dev-215137",
+      "StackId": "arn:aws:cloudformation:us-east-1:070854643340:stack/amplify-openbrewerydbdynamo-dev-215137/331156b0-8470-11eb-9873-0a71dc7a3521",
+      "AmplifyAppId": "d3tol4qxiz87dm"
+    }
+  }
+}

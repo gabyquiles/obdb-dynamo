@@ -1,0 +1,14 @@
+#set( $es_items = [] )
+#set( $body = $util.parseJson($context.result.body))
+#foreach( $entry in $context.result.hits.hits )
+  #set ( $item = {
+    "brewery": $entry.get("_source"),
+    "distance": $entry.get("sort").get(0)
+  })
+  $util.qr($es_items.add($item))
+#end
+
+#set( $es_response = {
+  "items": $es_items
+} )
+$util.toJson($es_response)
